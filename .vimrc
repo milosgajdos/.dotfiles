@@ -48,6 +48,12 @@ set t_Co=256
 let mapleader = ","
 let g:mapleader = ","
 
+" remap hjkl
+noremap ' l
+noremap ; k
+noremap l j
+noremap k h
+
 " Fast saving
 nmap <leader>w :w!<cr>
 " Fast quitting

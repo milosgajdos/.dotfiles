@@ -61,6 +61,11 @@ nmap <silent> <leader>n :set hlsearch!<CR>
 " Turn off auto-commenting
 au FileType * setlocal formatoptions-=cro
 
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<s-c-k>"
+
 " File backups
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//

@@ -46,6 +46,12 @@ colorscheme molokai
 set t_Co=256
 
 let mapleader = ","
+let g:mapleader = ","
+
+" Fast saving
+nmap <leader>w :w!<cr>
+" Fast quitting
+nmap <leader>q :q<cr>
 
 " toggle the paste
 map <leader>p :set paste!<CR>

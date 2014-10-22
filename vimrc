@@ -15,6 +15,9 @@ Plugin 'honza/vim-snippets'
 " go-vim plugin by fatih
 Plugin 'fatih/vim-go'
 
+" vim-ruby plugin for ruby shit
+Plugin 'vim-ruby/vim-ruby'
+
 " vim-fugitive plugin for git
 Plugin 'tpope/vim-fugitive'
 

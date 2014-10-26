@@ -7,6 +7,9 @@ call vundle#begin()          " required
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" vim-ruby plugin
+Plugin 'vim-ruby/vim-ruby'
+
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " " Snippets are separated from the engine. Add this if you want them:
@@ -15,24 +18,28 @@ Plugin 'honza/vim-snippets'
 " go-vim plugin by fatih
 Plugin 'fatih/vim-go'
 
-" vim-ruby plugin for ruby shit
-Plugin 'vim-ruby/vim-ruby'
-
 " vim-fugitive plugin for git
 Plugin 'tpope/vim-fugitive'
 
 " enabled vim-neatstatus line
 Plugin 'maciakl/vim-neatstatus'
 
-call vundle#end()            " required
+" Salt Stack vim plugin
+Plugin 'saltstack/salt-vim'
 
+" Chef vim plugin
+Plugin 't9md/vim-chef'
+
+call vundle#end()            " required
 filetype plugin indent on    " enable file detection
+
 syntax on        " Always turn the syntax on
 set expandtab    " Turn tab into spaces
 set number       " Turn on numbering of lines
-set showmatch    " Show matching brackets.
-set matchtime=5  " Bracket blinking.
 set noshowmode   " Shows vim mode
+
+" Retarded ruby indentation
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 
 " set status line
 set laststatus=2 " Always show status line.
@@ -56,11 +63,14 @@ noremap ' l
 noremap ; k
 noremap l j
 noremap k h
+nnoremap . ;
 
 " Fast saving
 nmap <leader>w :w!<cr>
 " Fast quitting
 nmap <leader>q :q<cr>
+" Fast save and quit
+nmap <leader>ww :wq<cr>
 
 " toggle the paste
 map <leader>p :set paste!<CR>

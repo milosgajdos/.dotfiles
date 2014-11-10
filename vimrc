@@ -30,6 +30,16 @@ Plugin 'saltstack/salt-vim'
 " Chef vim plugin
 Plugin 't9md/vim-chef'
 
+" JSON plugin
+Plugin 'elzr/vim-json'
+
+" jinja templates plugin
+Plugin 'mitsuhiko/vim-jinja'
+
+" Markdown syntax highlighting
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
 call vundle#end()            " required
 filetype plugin indent on    " enable file detection
 

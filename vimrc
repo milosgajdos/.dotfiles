@@ -95,6 +95,16 @@ let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<s-c-k>"
 
+" vim-go settings
+" Disable error checks on gofmr when saving go file
+let g:go_fmt_fail_silently = 1
+" Enable goimports to automatically insert import paths instead of gofmt
+let g:go_fmt_command = "goimports"
+" Highlight funcs, structs and methods
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
 " File backups
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//

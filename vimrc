@@ -10,6 +10,9 @@ Plugin 'gmarik/Vundle.vim'
 " vim-ruby plugin
 Plugin 'vim-ruby/vim-ruby'
 
+" Dockerfile vim plugin
+Plugin 'ekalinin/Dockerfile.vim'
+
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " " Snippets are separated from the engine. Add this if you want them:

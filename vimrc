@@ -78,6 +78,9 @@ noremap l j
 noremap k h
 nnoremap . ;
 
+" Change ESC mapping
+inoremap ;; <ESC>
+
 " Fast saving
 nmap <leader>w :w!<cr>
 " Fast quitting
@@ -112,3 +115,12 @@ let g:go_highlight_structs = 1
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+
+" OCaml
+autocmd FileType ocaml source /Users/milosgajdos/.opam/system/share/vim/syntax/ocp-indent.vim
+execute ":source " . "~/.opam/system/share/vim/syntax/ocp-indent.vim"
+if executable('ocamlmerlin') && has('python')
+  let s:ocamlmerlin = substitute(system('opam config var share'), '\n$', '', '''') . "/ocamlmerlin"
+  execute "set rtp+=".s:ocamlmerlin."/vim"
+  execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
+endif

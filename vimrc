@@ -9,17 +9,22 @@ Plugin 'gmarik/Vundle.vim'
 
 " vim-ruby plugin
 Plugin 'vim-ruby/vim-ruby'
+" vim-elixir
+Plugin 'elixir-lang/vim-elixir'
 
 " Dockerfile vim plugin
 Plugin 'ekalinin/Dockerfile.vim'
 
 " Track the engine.
 Plugin 'SirVer/ultisnips'
-" " Snippets are separated from the engine. Add this if you want them:
+" Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
 " go-vim plugin by fatih
 Plugin 'fatih/vim-go'
+
+" tag bars
+Plugin 'majutsushi/tagbar'
 
 " vim-fugitive plugin for git
 Plugin 'tpope/vim-fugitive'
@@ -27,17 +32,11 @@ Plugin 'tpope/vim-fugitive'
 " enabled vim-neatstatus line
 Plugin 'maciakl/vim-neatstatus'
 
-" Salt Stack vim plugin
-Plugin 'saltstack/salt-vim'
-
 " Chef vim plugin
 Plugin 't9md/vim-chef'
 
 " JSON plugin
 Plugin 'elzr/vim-json'
-
-" jinja templates plugin
-Plugin 'mitsuhiko/vim-jinja'
 
 " Markdown syntax highlighting
 Plugin 'godlygeek/tabular'
@@ -82,16 +81,18 @@ nnoremap . ;
 inoremap ;; <ESC>
 
 " Fast saving
-nmap <leader>w :w!<cr>
+nmap `w :w!<cr>
 " Fast quitting
-nmap <leader>q :q<cr>
+nmap `q :q<cr>
 " Fast save and quit
-nmap <leader>ww :wq<cr>
+nmap `ww :wq<cr>
 
 " toggle the paste
 map <leader>p :set paste!<CR>
 " toggles search highlighting
 nmap <silent> <leader>n :set hlsearch!<CR>
+" Toggle the Tagbar
+nmap <F8> :TagbarToggle<CR>
 
 " Turn off auto-commenting
 au FileType * setlocal formatoptions-=cro
@@ -110,6 +111,24 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+" Command shortcuts
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+" Open the definition/declaration in a new vertical, horizontal
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+" Open the relevant Godoc for the word under the cursor
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+" Open the Godoc in browser
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+" Show a list of interfaces which is implemented by the type under your cursor
+au FileType go nmap <Leader>s <Plug>(go-implements)
+" Show type info for the word under your cursor
+au FileType go nmap <Leader>i <Plug>(go-info)
+" Rename the identifier under the cursor to a new name
+au FileType go nmap <Leader>e <Plug>(go-rename)
 
 " File backups
 set backupdir=~/.vim/backup//
@@ -117,10 +136,10 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
 " OCaml
-autocmd FileType ocaml source /Users/milosgajdos/.opam/system/share/vim/syntax/ocp-indent.vim
-execute ":source " . "~/.opam/system/share/vim/syntax/ocp-indent.vim"
-if executable('ocamlmerlin') && has('python')
-  let s:ocamlmerlin = substitute(system('opam config var share'), '\n$', '', '''') . "/ocamlmerlin"
-  execute "set rtp+=".s:ocamlmerlin."/vim"
-  execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
-endif
+" autocmd FileType ocaml source /Users/milosgajdos/.opam/system/share/vim/syntax/ocp-indent.vim
+" execute ":source " . "~/.opam/system/share/vim/syntax/ocp-indent.vim"
+" if executable('ocamlmerlin') && has('python')
+"   let s:ocamlmerlin = substitute(system('opam config var share'), '\n$', '', '''') . "/ocamlmerlin"
+"   execute "set rtp+=".s:ocamlmerlin."/vim"
+"   execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
+" endif

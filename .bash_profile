@@ -4,7 +4,6 @@ export PS1="\u@\h \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ 
 export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
 
 export GOPATH=$HOME/go
-export GOROOT='/usr/local/go'
 export EDITOR='vim'
 export PATH=$PATH:$GOPATH/bin
 
@@ -20,12 +19,6 @@ source ~/.bash/bash_aliases
 source ~/.bash/bash_completions
 source ~/.bash/git_aliases
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/milosgajdos/google-cloud-sdk/path.bash.inc'
-
-# The next line enables bash completion for gcloud.
-source '/Users/milosgajdos/google-cloud-sdk/completion.bash.inc'
-
 # awscli auto complete
 complete -C aws_completer aws
 
@@ -37,3 +30,13 @@ fi
 # do the python virtualenv shitshow
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/milosgajdos/Code/google-cloud-sdk/path.bash.inc ]; then
+  source '/Users/milosgajdos/Code/google-cloud-sdk/path.bash.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/milosgajdos/Code/google-cloud-sdk/completion.bash.inc ]; then
+  source '/Users/milosgajdos/Code/google-cloud-sdk/completion.bash.inc'
+fi

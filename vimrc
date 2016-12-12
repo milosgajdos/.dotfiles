@@ -9,6 +9,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " vim-ruby plugin
 Plugin 'vim-ruby/vim-ruby'
+
 " vim-elixir
 Plugin 'elixir-lang/vim-elixir'
 
@@ -17,6 +18,7 @@ Plugin 'ekalinin/Dockerfile.vim'
 
 " Track the engine.
 Plugin 'SirVer/ultisnips'
+
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
@@ -32,15 +34,11 @@ Plugin 'tpope/vim-fugitive'
 " enabled vim-neatstatus line
 Plugin 'maciakl/vim-neatstatus'
 
-" Chef vim plugin
-Plugin 't9md/vim-chef'
+" Ansible vim plugin
+Plugin 'chase/vim-ansible-yaml'
 
-" JSON plugin
-Plugin 'elzr/vim-json'
-
-" Markdown syntax highlighting
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+" syntastic
+"Plugin 'scrooloose/syntastic'
 
 call vundle#end()            " required
 filetype plugin indent on    " enable file detection
@@ -102,6 +100,9 @@ let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<s-c-k>"
 
+" Ansible plugin config
+let g:ansible_options = {'ignore_blank_lines': 0}
+
 " vim-go settings
 " Disable error checks on gofmr when saving go file
 let g:go_fmt_fail_silently = 1
@@ -135,11 +136,30 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
-" OCaml
-" autocmd FileType ocaml source /Users/milosgajdos/.opam/system/share/vim/syntax/ocp-indent.vim
-" execute ":source " . "~/.opam/system/share/vim/syntax/ocp-indent.vim"
-" if executable('ocamlmerlin') && has('python')
-"   let s:ocamlmerlin = substitute(system('opam config var share'), '\n$', '', '''') . "/ocamlmerlin"
-"   execute "set rtp+=".s:ocamlmerlin."/vim"
-"   execute "set rtp+=".s:ocamlmerlin."/vimbufsync"
-" endif
+" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" let g:syntastic_elixir_checkers = ['elixir']
+" let g:syntastic_enable_elixir_checker = 1
+
+" traimwhitespace
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+" highlight trailing spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWritePre * call TrimWhitespace()
+autocmd BufWinLeave * call clearmatches()

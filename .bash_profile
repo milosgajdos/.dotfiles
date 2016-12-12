@@ -17,7 +17,7 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 source ~/.bash/bash_aliases
-source ~/.bash/bash_funcs
+source ~/.bash/bash_completions
 source ~/.bash/git_aliases
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -26,5 +26,14 @@ source '/Users/milosgajdos/google-cloud-sdk/path.bash.inc'
 # The next line enables bash completion for gcloud.
 source '/Users/milosgajdos/google-cloud-sdk/completion.bash.inc'
 
-# OPAM configuration
-. /Users/milosgajdos/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+# awscli auto complete
+complete -C aws_completer aws
+
+# start ssh-agent
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+  eval `ssh-agent -s`
+fi
+
+# do the python virtualenv shitshow
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh

@@ -2,10 +2,12 @@ export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source $GITAWAREPROMPT/main.sh
 export PS1="\u@\h \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
+# erase duplicates from bash history
+export HISTCONTROL=ignoreboth:erasedups
 
 export GOPATH=$HOME/go
 export EDITOR='vim'
-export PATH=$PATH:$GOPATH/bin
+export PATH="/usr/local/opt/python/libexec/bin:$PATH:$GOPATH/bin"
 
 if test "${PS1+set}"
 then
@@ -22,11 +24,6 @@ source ~/.bash/git_aliases
 # awscli auto complete
 complete -C aws_completer aws
 
-# start ssh-agent
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-  eval `ssh-agent -s`
-fi
-
 # do the python virtualenv shitshow
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
@@ -40,3 +37,5 @@ fi
 if [ -f /Users/milosgajdos/Code/google-cloud-sdk/completion.bash.inc ]; then
   source '/Users/milosgajdos/Code/google-cloud-sdk/completion.bash.inc'
 fi
+source /usr/local/etc/bash_completion
+source <(kubectl completion bash)

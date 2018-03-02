@@ -6,4 +6,6 @@ setup:
 	ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
 	ln -s ~/.dotfiles/.bash ~/.bash
 	ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+	ln -s ~/.dotfiles/.s3cfg ~/.s3cfg
+	ln -s ~/.dotfiles/.gemrc ~/.gemrc
 	vim +PluginInstall +qall

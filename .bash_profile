@@ -8,6 +8,7 @@ export HISTCONTROL=ignoreboth:erasedups
 export GOPATH=$HOME/go
 export EDITOR='vim'
 export PATH="/usr/local/opt/python/libexec/bin:$PATH:$GOPATH/bin"
+export GO111MODULE=on
 
 if test "${PS1+set}"
 then
@@ -28,14 +29,27 @@ complete -C aws_completer aws
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/milosgajdos/Code/google-cloud-sdk/path.bash.inc ]; then
-  source '/Users/milosgajdos/Code/google-cloud-sdk/path.bash.inc'
-fi
+## The next line updates PATH for the Google Cloud SDK.
+#if [ -f /Users/milosgajdos/Code/google-cloud-sdk/path.bash.inc ]; then
+#  source '/Users/milosgajdos/Code/google-cloud-sdk/path.bash.inc'
+#fi
+#
+## The next line enables shell command completion for gcloud.
+#if [ -f /Users/milosgajdos/Code/google-cloud-sdk/completion.bash.inc ]; then
+#  source '/Users/milosgajdos/Code/google-cloud-sdk/completion.bash.inc'
+#fi
+#source /usr/local/etc/bash_completion
+#source <(kubectl completion bash)
 
-# The next line enables shell command completion for gcloud.
-if [ -f /Users/milosgajdos/Code/google-cloud-sdk/completion.bash.inc ]; then
-  source '/Users/milosgajdos/Code/google-cloud-sdk/completion.bash.inc'
-fi
-source /usr/local/etc/bash_completion
-source <(kubectl completion bash)
+export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id)
+export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.ngs/bin:$PATH"  #Add NGS utility to the path
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
+# GPG TTY setting
+export GPG_TTY=$(tty)
+
+export PATH=.bundle/binstubs:$PATH
+export AWS_VAULT_BACKEND="keychain"

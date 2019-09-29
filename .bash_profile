@@ -7,7 +7,7 @@ export HISTCONTROL=ignoreboth:erasedups
 
 export GOPATH=$HOME/go
 export EDITOR='vim'
-export PATH="/usr/local/opt/python/libexec/bin:$PATH:$GOPATH/bin"
+export PATH="/usr/local/sbin:/usr/local/opt/python/libexec/bin:$PATH:$GOPATH/bin"
 export GO111MODULE=on
 
 if test "${PS1+set}"
@@ -24,22 +24,6 @@ source ~/.bash/git_aliases
 
 # awscli auto complete
 complete -C aws_completer aws
-
-# do the python virtualenv shitshow
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-
-## The next line updates PATH for the Google Cloud SDK.
-#if [ -f /Users/milosgajdos/Code/google-cloud-sdk/path.bash.inc ]; then
-#  source '/Users/milosgajdos/Code/google-cloud-sdk/path.bash.inc'
-#fi
-#
-## The next line enables shell command completion for gcloud.
-#if [ -f /Users/milosgajdos/Code/google-cloud-sdk/completion.bash.inc ]; then
-#  source '/Users/milosgajdos/Code/google-cloud-sdk/completion.bash.inc'
-#fi
-#source /usr/local/etc/bash_completion
-#source <(kubectl completion bash)
 
 export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id)
 export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key)

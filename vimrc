@@ -29,6 +29,9 @@ Plugin 'hashivim/vim-terraform'
 " python indentation
 Plugin 'vim-scripts/indentpython.vim'
 
+" json plugin
+Plugin 'elzr/vim-json'
+
 " You Complete Me
 Plugin 'Valloric/YouCompleteMe'
 
@@ -66,6 +69,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 " DART plugin
 Plugin 'dart-lang/dart-vim-plugin'
+
+" supertab
+Plugin 'ervandew/supertab'
 
 " WASM vim support
 "Plugin 'rhysd/vim-wasm'
@@ -182,9 +188,22 @@ set laststatus=2
 
 " ultisnips config
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<s-c-k>"
+"let g:UltiSnipsExpandTrigger="<c-k>"
+"let g:UltiSnipsJumpForwardTrigger="<c-j>"
+"let g:UltiSnipsJumpBackwardTrigger="<s-c-k>"
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " ycm config
 " autocomplete window goes away when you’re done with it
@@ -286,6 +305,9 @@ autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
+" json config
+let g:vim_json_syntax_conceal = 0
 
 " automatic Dart file type detection
 au BufRead,BufNewFile *.dart set filetype=dart

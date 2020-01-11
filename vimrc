@@ -67,11 +67,17 @@ Plugin 'AndrewRadev/splitjoin.vim'
 
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" Swift plugin
+Plugin 'bumaociyuan/vim-swift'
+
 " DART plugin
 Plugin 'dart-lang/dart-vim-plugin'
 
 " supertab
 Plugin 'ervandew/supertab'
+
+" Powershell vim support
+Plugin 'PProvost/vim-ps1'
 
 " WASM vim support
 "Plugin 'rhysd/vim-wasm'
@@ -147,6 +153,11 @@ nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 " Fast save and quit
 nmap <leader>ww :wq<cr>
+
+" Edit vimr configuration file
+nnoremap <Leader>ve :e $MYVIMRC<CR>
+" " Reload vimr configuration file
+nnoremap <Leader>vr :source $MYVIMRC<CR>
 
 " toggle the paste
 nmap ,p :set paste!<CR>

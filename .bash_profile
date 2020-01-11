@@ -37,3 +37,4 @@ export GPG_TTY=$(tty)
 
 export PATH=.bundle/binstubs:$PATH
 export AWS_VAULT_BACKEND="keychain"
+export BASH_SILENCE_DEPRECATION_WARNING=1

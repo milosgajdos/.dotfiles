@@ -12,7 +12,7 @@ alias rustpath='cd $HOME/Code/rust'
 alias nlp='cd $HOME/Code/NLP'
 alias teller='cd /Users/milosgajdos/Code/teller'
 alias cam='cd /Users/milosgajdos/Code/Camelot'
-alias mic='cd /Users/milosgajdos/go/src/github.com/micro'
+alias mu='cd /Users/milosgajdos/go/src/github.com/micro'
 
 alias kuns='kubectl --namespace'
 alias ksys='kubectl --namespace=kube-system'

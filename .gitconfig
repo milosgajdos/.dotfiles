@@ -1,28 +1,37 @@
 [user]
 	name = Milos Gajdos
 	email = milosgajdos83@gmail.com
+	signingkey = 8B31058CC55DFD4F
 [core]
 	editor = vim
 [color]
 	ui = true
 [alias]
-  	co = checkout
-  	ci = commit
-  	st = status
-  	br = brcnch
-	cob = checkout -b
-  	type = cat-file -t
-  	dump = cat-file -p
-  	logs = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate
-	logl = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --numstat
-	logd = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --date=short
-	logr = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --date=relative
+        co = checkout
+        ci = commit -S
+        st = status
+        br = branch
+        cob = checkout -b
+        type = cat-file -t
+        dump = cat-file -p
+        logs = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate
+        logl = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --numstat
+        logd = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --date=short
+        logr = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --date=relative
+        grph = log --oneline --decorate --all --graph
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [github]
 	user = milosgajdos83
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 	required = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[diff]
+	noprefix = true

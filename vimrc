@@ -68,7 +68,8 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " Swift plugin
-Plugin 'bumaociyuan/vim-swift'
+" Plugin 'bumaociyuan/vim-swift'
+Plugin 'keith/swift.vim'
 
 " DART plugin
 Plugin 'dart-lang/dart-vim-plugin'
@@ -180,7 +181,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " hide .pyc files
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 " custom git-nerd-tree symbols
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",

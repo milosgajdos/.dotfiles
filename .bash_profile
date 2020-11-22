@@ -18,7 +18,7 @@ fi
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-source ~/.bash/*
+for i in `find ~/.bash/ -type f`; do source $i; done
 
 # awscli auto complete
 complete -C aws_completer aws

@@ -80,6 +80,12 @@ Plugin 'ervandew/supertab'
 " Powershell vim support
 Plugin 'PProvost/vim-ps1'
 
+" YAML cruft
+Plugin 'Einenlum/yaml-revealer'
+
+" Cuelang plugin
+Plugin 'jjo/vim-cue'
+
 " WASM vim support
 "Plugin 'rhysd/vim-wasm'
 
@@ -285,7 +291,7 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_build_constraints = 1
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck', 'bodyclose', 'prealloc']
 " Open :GoDeclsDir with ctrl-g
 au FileType go nmap <C-g> :GoDeclsDir<cr>
 au FileType go imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
@@ -307,7 +313,7 @@ au FileType go nmap <Leader>d <Plug>(go-doc)
 " Open the Godoc in browser
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 " Show a list of interfaces which is implemented by the type under your cursor
-au FileType go nmap <Leader>im <Plug>(go-implements)
+au FileType go nmap <Leader>f <Plug>(go-implements)
 " Show type info for the word under your cursor
 au FileType go nmap <Leader>i <Plug>(go-info)
 " Rename the identifier under the cursor to a new name

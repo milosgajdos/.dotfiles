@@ -86,6 +86,9 @@ Plugin 'Einenlum/yaml-revealer'
 " Cuelang plugin
 Plugin 'jjo/vim-cue'
 
+" GraphQL plugin
+Plugin 'jparise/vim-graphql'
+
 " WASM vim support
 "Plugin 'rhysd/vim-wasm'
 
@@ -345,6 +348,9 @@ endfunction
 
 " python higlight code
 let python_highlight_all=1
+
+" GraphQL prisma syntax highlighter
+au BufNewFile,BufRead *.prisma setfiletype graphql
 
 " trimwhitespace
 fun! TrimWhitespace()

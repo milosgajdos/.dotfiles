@@ -2,6 +2,8 @@ export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source $GITAWAREPROMPT/main.sh
 export PS1="\u@\h \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+export HISTSIZE=1000
 # erase duplicates from bash history
 export HISTCONTROL=ignoreboth:erasedups
 
@@ -43,9 +45,9 @@ export AWS_VAULT_BACKEND="keychain"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/milosgajdos/google-cloud-sdk/path.bash.inc' ]; then . '/Users/milosgajdos/google-cloud-sdk/path.bash.inc'; fi
+#if [ -f '/Users/milosgajdos/google-cloud-sdk/path.bash.inc' ]; then . '/Users/milosgajdos/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/milosgajdos/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/milosgajdos/google-cloud-sdk/completion.bash.inc'; fi
+#if [ -f '/Users/milosgajdos/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/milosgajdos/google-cloud-sdk/completion.bash.inc'; fi
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"

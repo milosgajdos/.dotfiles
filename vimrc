@@ -65,10 +65,11 @@ Plugin 'kshenoy/vim-signature'
 " multiline vs single line code
 Plugin 'AndrewRadev/splitjoin.vim'
 
+" code search plugin
+" investigate fzf.vim
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " Swift plugin
-" Plugin 'bumaociyuan/vim-swift'
 Plugin 'keith/swift.vim'
 
 " DART plugin
@@ -88,6 +89,15 @@ Plugin 'jjo/vim-cue'
 
 " GraphQL plugin
 Plugin 'jparise/vim-graphql'
+
+" TOML plugin
+Plugin 'cespare/vim-toml'
+
+" GitHub line
+"Plugin 'ruanyl/vim-gh-line'
+
+" GitGutter (gitgutter)
+Plugin 'airblade/vim-gitgutter'
 
 " WASM vim support
 "Plugin 'rhysd/vim-wasm'
@@ -112,6 +122,7 @@ set noshowmatch    " Do not show matching brackets by flickering
 set noshowmode     " We show the mode with airline or lightline
 set pumheight=10   " Completion window max size
 set lazyredraw     " Wait to redraw
+set updatetime=400 " Change update time to something more sensible (400ms) than the default 4s
 
 " Match and search
 set hlsearch    " highlight search
@@ -140,7 +151,7 @@ set background=dark
 colorscheme molokai
 set t_Co=256
 
-" mappeader config
+" mapleader config
 let mapleader = "`"
 let g:mapleader = "`"
 
@@ -164,9 +175,9 @@ nmap <leader>q :q<cr>
 " Fast save and quit
 nmap <leader>ww :wq<cr>
 
-" Edit vimr configuration file
+" Edit vimrc configuration file
 nnoremap <Leader>ve :e $MYVIMRC<CR>
-" " Reload vimr configuration file
+" Reload vimrc configuration file
 nnoremap <Leader>vr :source $MYVIMRC<CR>
 
 " toggle the paste
@@ -175,6 +186,10 @@ nmap ,p :set paste!<CR>
 nmap <silent> ,n :set hlsearch!<CR>
 " Toggle the Tagbar
 nmap <F8> :TagbarToggle<CR>
+" Toggle gitgutter
+nmap ,g :GitGutterToggle<CR>
+" Toggle GitBlame
+nmap ,b :Gblame<CR>
 
 " Turn off auto-commenting
 au FileType * setlocal formatoptions-=cro
@@ -209,9 +224,9 @@ set laststatus=2
 
 " ultisnips config
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<c-k>"
-"let g:UltiSnipsJumpForwardTrigger="<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger="<s-c-k>"
+"let g:UltiSnipsExpandTrigger="<C-k>"
+"let g:UltiSnipsJumpForwardTrigger="<C-j>"
+"let g:UltiSnipsJumpBackwardTrigger="<S-C-k>"
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -329,6 +344,12 @@ autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 " json config
 let g:vim_json_syntax_conceal = 0
+
+" gitgutter config
+let g:gitgutter_sign_modified = '*'
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 " automatic Dart file type detection
 au BufRead,BufNewFile *.dart set filetype=dart
